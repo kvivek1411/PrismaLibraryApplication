@@ -9,3 +9,27 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+
+**/target/
+**/react/
+**/.settings
+.settings
+**/.classpath
+.classpath
+**/bin/
+.project
+**/.project
+**/lib/
+**/META-INF/MANIFEST.MF
+**/.pmd
+.pmd
+**/.pmd
+**/rebel.xml
+**/rebel-remote.xml
+**/derby.log
+*.iml
+.idea/
+**/temporary/
+**/.rebel.xml.bak
+**/.rebel-remote.xml.bak
+**/pom.xml.versionsBackup
