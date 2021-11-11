@@ -16,9 +16,9 @@ import java.util.List;
 public class BorrowedService {
     
     private final BorrowedRepository borrowedRepository;
-    private final BorrowedMapper borrowedMapper = BorrowedMapper.INSTANCE;
+    private static final BorrowedMapper borrowedMapper = BorrowedMapper.INSTANCE;
     
     public List<BorrowedDTO> getAll() {
-        return borrowedMapper.entitiesToDTOs((List<BorrowedEntity>) borrowedRepository.findAll()) ;
+        return borrowedMapper.entitiesToDTOs((List<BorrowedEntity>) borrowedRepository.findAll());
     }
 }
