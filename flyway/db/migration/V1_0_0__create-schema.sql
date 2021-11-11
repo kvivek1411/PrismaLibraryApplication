@@ -1,15 +1,15 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS user;
 
-CREATE TABLE users (
+CREATE TABLE user (
   id INT AUTO_INCREMENT  PRIMARY KEY,
   name VARCHAR(250) NOT NULL,
-  last_name VARCHAR(250) NOT NULL,
+  first_name VARCHAR(250) NOT NULL,
   member_since DATE NOT NULL,
   member_till DATE,
   gender VARCHAR(1) NOT NULL
 );
 
-INSERT INTO users (name, last_name, member_since, member_till, gender) VALUES
+INSERT INTO user (name, first_name, member_since, member_till, gender) VALUES
   ('Aexi', 'Liam', to_date('01/01/2010', 'MM-DD-YYYY'), null, 'm'),
   ('Zhungwang', 'Noah', to_date('11/24/2020', 'MM-DD-YYYY'), null, 'm'),
   ('Odum', 'Oliver', to_date('05/08/1999', 'MM-DD-YYYY'), to_date('01/01/2021', 'MM-DD-YYYY'), 'm'),
@@ -22,9 +22,9 @@ INSERT INTO users (name, last_name, member_since, member_till, gender) VALUES
   ('Barret-Kingsley', 'Emma', to_date('09/12/1997', 'MM-DD-YYYY'), null, 'f'),
   ('Augusta', 'Olivia', to_date('07/05/2003', 'MM-DD-YYYY'), null, 'f');
 
-DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS book;
 
-CREATE TABLE books (
+CREATE TABLE book (
 id INT AUTO_INCREMENT  PRIMARY KEY,
 title VARCHAR(250) NOT NULL,
 author VARCHAR(250) NOT NULL,
@@ -32,7 +32,7 @@ genre VARCHAR(250) NOT NULL,
 publisher VARCHAR(250) NOT NULL
 );
 
-INSERT INTO books (title, author, genre, publisher) VALUES
+INSERT INTO book (title, author, genre, publisher) VALUES
 ('Age of Discontuinity, The', 'Drucker, Peter', 'economics', 'Random House'),
 ('Age of Wrath, The', 'Eraly, Abraham', 'history', 'Penguin'),
 ('Aghal Paghal', 'Deshpande, P L', 'nonfiction', 'Mauj'),
@@ -144,3 +144,24 @@ INSERT INTO books (title, author, genre, publisher) VALUES
 ('Wealth of Nations, The', 'Smith, Adam', 'economics', 'Random House'),
 ('Winter of Our Discontent, The', 'Steinbeck, John', 'fiction', 'Penguin'),
 ('Zen & The Art of Motorcycle Maintenance', 'Pirsig, Robert', 'philosophy', 'Vintage');
+
+
+DROP TABLE IF EXISTS borrowed;
+
+CREATE TABLE borrowed (
+id INT AUTO_INCREMENT  PRIMARY KEY,
+user_id INT,
+book_id INT,
+borrowed_from DATE NOT NULL,
+borrowed_to DATE,
+
+CONSTRAINT FK_USER_ID FOREIGN KEY (USER_ID) REFERENCES USER,
+CONSTRAINT FK_BOOK_ID FOREIGN KEY (BOOK_ID) REFERENCES BOOK
+);
+
+INSERT INTO borrowed (user_id, book_id, borrowed_from, borrowed_to) VALUES
+(1, 1, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
+(1, 2, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
+(1, 3, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
+(2, 1, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
+(2, 2, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY'));

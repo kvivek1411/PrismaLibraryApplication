@@ -1,23 +1,21 @@
 package com.prisma.libraryapplication.service;
 
-import com.prisma.libraryapplication.entity.User;
+import com.prisma.libraryapplication.entity.UserEntity;
 import com.prisma.libraryapplication.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
+@Slf4j
 public class UserService {
     
     private final UserRepository userRepository;
     
-    @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-    
-    public List<User> getAll() {
-        return (List<User>) userRepository.findAll();
+    public List<UserEntity> getAll() {
+        return (List<UserEntity>) userRepository.findAll();
     }
 }

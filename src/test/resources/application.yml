@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  security:
+    user:
+      name: prismaUser
+      password: prismaProtected
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: libapp
+    driverClassName: org.h2.Driver
+    password: prismaProtected
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  flyway:
+    enable: true
+    locations: filesystem:flyway/db/migration
