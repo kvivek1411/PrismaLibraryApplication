@@ -162,6 +162,6 @@ CONSTRAINT FK_BOOK_ID FOREIGN KEY (BOOK_ID) REFERENCES BOOK
 INSERT INTO borrowed (user_id, book_id, borrowed_from, borrowed_to) VALUES
 (1, 1, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
 (1, 2, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
-(1, 3, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
-(2, 1, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
-(2, 2, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY'));
+(1, 3, to_date('07/05/2003', 'MM-DD-YYYY'), null),
+(3, 1, to_date('07/05/2003', 'MM-DD-YYYY'), to_date('07/05/2003', 'MM-DD-YYYY')),
+(3, 2, to_date('07/05/2003', 'MM-DD-YYYY'), null);

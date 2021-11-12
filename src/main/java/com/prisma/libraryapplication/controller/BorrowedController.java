@@ -18,4 +18,9 @@ public class BorrowedController {
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(borrowedService.getAll());
     }
+    
+    @GetMapping("users")
+    public ResponseEntity<?> getAllBorrowedUsers() {
+        return ResponseEntity.ok(borrowedService.getAllBorrowedUsers());
+    }
 }
